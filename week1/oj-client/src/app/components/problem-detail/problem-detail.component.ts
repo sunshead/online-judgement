@@ -8,19 +8,17 @@ import { DataService } from '../../services/data.service';
   templateUrl: './problem-detail.component.html',
   styleUrls: ['./problem-detail.component.css']
 })
+
 export class ProblemDetailComponent implements OnInit {
-  
-  problem: Problem;
+    problem: Problem;
+    constructor(private dataService: DataService,
+                private route: ActivatedRoute) { }
 
-  constructor(private dataService: DataService,
-  			  private route: ActivatedRoute) { }
-
-  ngOnInit() {
-  	// subscribe: when params changes, this.problem will be updated
-  	// +: convert string to int
-  	this.route.params.subscribe (params => {
-  		this.problem = this.dataService.getProblem(+params['id']);
-  	});
-  }
-
+    ngOnInit() {
+        // subscribe: when params changes, this.problem will be updated
+        // +: convert string to int
+        this.route.params.subscribe (params => {
+            this.problem = this.dataService.getProblem(+params['id']);
+        });
+    }
 }
