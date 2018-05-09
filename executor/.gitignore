@@ -1,0 +1,2 @@
+# intermediate files when build and run python
+*.pyc
